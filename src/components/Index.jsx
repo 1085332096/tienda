@@ -1,6 +1,6 @@
 export { default as Button } from "./Button";
 export { default as ThemeSettings } from "./ThemeSettings";
-export { default as Sidebard } from "./Sidebard";
+export { default as Sidebar } from "./Sidebar";
 export { default as Navbar } from "./Navbar";
 export { default as Carl } from "./Carl";
 export { default as Chat } from "./Chat";

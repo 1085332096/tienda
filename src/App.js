@@ -2,10 +2,26 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import { Navbar, Footer,ThemeSettings} from "./components/Index";
-import { Sidebar } from "./components/Sidebar.jsx";
-import { Ecommerce, Orders, Calendar, Employees, StackedChart, PyramidChart, Customers, Kanban, LineChart, AreaChart, BarChart, PieChart, FinancialChart, ColorPicker, ColorMappingChart, Editor } from "./pages";
-import './App.css';
+import { Navbar, Footer, ThemeSettings, Sidebar} from "./components/Index";
+import {
+  Ecommerce,
+  Orders,
+  Calendar,
+  Employees,
+  StackedChart,
+  PyramidChart,
+  Customers,
+  Kanban,
+  LineChart,
+  AreaChart,
+  BarChart,
+  PieChart,
+  FinancialChart,
+  ColorPicker,
+  ColorMappingChart,
+  Editor,
+} from "./pages";
+import "./App.css";
 
 export const App = () => {
   const activeMenu = false;
@@ -32,8 +48,11 @@ export const App = () => {
             <Sidebar></Sidebar>
           </div>
         )}
-        <div className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? "md-ml-72" : "flex-2"}`}>
-
+        <div
+          className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
+            activeMenu ? "md-ml-72" : "flex-2"
+          }`}
+        >
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
             <Navbar></Navbar>
           </div>
@@ -41,31 +60,32 @@ export const App = () => {
           <div>
             <Routes>
               {/*dashBoard */}
-              <Route path="/" element={<Ecommerce />}/>
-              <Route path="/ecommerce" element={<Ecommerce />}/>
+              <Route path="/" element={<Ecommerce />} />
+              <Route path="/ecommerce" element={<Ecommerce />} />
               {/* pages*/}
-              <Route path="/orders" element={<Orders/>}/>
-              <Route path="/employees" element={<Employees/>}/>
-              <Route path="/customers" element={<Customers/>}/>
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/employees" element={<Employees />} />
+              <Route path="/customers" element={<Customers />} />
               {/*Apps */}
-              <Route path="/kanban" element={<Kanban/>}/>
-              <Route path="/editor" element={<Editor/>}/>
-              <Route path="/calendar" element={<Calendar/>}/>
-              <Route path="/color-picker" element={<ColorPicker/>}/>
+              <Route path="/kanban" element={<Kanban />} />
+              <Route path="/editor" element={<Editor />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/color-picker" element={<ColorPicker />} />
               {/*Graficos*/}
-              <Route path="/line" element={<LineChart/>}/>
-              <Route path="/area" element={<AreaChart/>}/>
-              <Route path="/bar" element={<BarChart/>}/>
-              <Route path="/pie" element={<PieChart/>}/>
-              <Route path="/financial" element={<FinancialChart/>}/>
-              <Route path="/color-mapping" element={<ColorMappingChart/>}/>
-              <Route path="/pyramid" element={<PyramidChart/>}/>
-              <Route path="/staked" element={<StackedChart/>}/>
+              <Route path="/line" element={<LineChart />} />
+              <Route path="/area" element={<AreaChart />} />
+              <Route path="/bar" element={<BarChart />} />
+              <Route path="/pie" element={<PieChart />} />
+              <Route path="/financial" element={<FinancialChart />} />
+              <Route path="/color-mapping" element={<ColorMappingChart />} />
+              <Route path="/pyramid" element={<PyramidChart />} />
+              <Route path="/staked" element={<StackedChart />} />
             </Routes>
           </div>
         </div>
       </div>
-
+      
     </BrowserRouter>
+
   );
 };
