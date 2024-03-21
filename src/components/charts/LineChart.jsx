@@ -1,6 +1,6 @@
 import React from 'react'
 
-function LineChart() {
+function LineChart () {
   return (
     <div>LineChart</div>
   )

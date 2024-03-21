@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-function Stacked() {
-  return <div>Stacked</div>;
+function Stacked () {
+  return <div>Stacked</div>
 }
 
-export default Stacked;
+export default Stacked
