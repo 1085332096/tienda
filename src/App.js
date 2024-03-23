@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
@@ -27,7 +27,7 @@ import Financial from "./pages/Charts/Financial";
 import { useStateContext } from "./contexts/ContextProvider";
 
 export const App = () => {
-  const {activeMenu}  = useStateContext();
+  const { activeMenu } = useStateContext();
   return (
     <BrowserRouter>
       <div className="flex relative dark:bg-main-dark-bg">
