@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-function Kanban() {
-  return <div>Kanban</div>;
+function Kanban () {
+  return <div>Kanban</div>
 }
 
-export default Kanban;
+export default Kanban

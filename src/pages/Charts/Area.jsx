@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-function Area() {
-  return <div>Area</div>;
+function Area () {
+  return <div>Area</div>
 }
 
-export default Area;
+export default Area

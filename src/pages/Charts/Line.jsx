@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-function Line() {
-  return <div>Line</div>;
+function Line () {
+  return <div>Line</div>
 }
 
-export default Line;
+export default Line

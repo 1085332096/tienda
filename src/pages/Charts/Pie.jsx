@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-function Pie() {
-  return <div>Pie</div>;
+function Pie () {
+  return <div>Pie</div>
 }
 
-export default Pie;
+export default Pie

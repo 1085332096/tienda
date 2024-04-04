@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-function Customers() {
-  return <div>Customers</div>;
+function Customers () {
+  return <div>Customers</div>
 }
 
-export default Customers;
+export default Customers

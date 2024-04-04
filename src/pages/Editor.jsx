@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-function Editor() {
-  return <div>Editor</div>;
+function Editor () {
+  return <div>Editor</div>
 }
 
-export default Editor;
+export default Editor
