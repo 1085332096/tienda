@@ -6,6 +6,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 
 import { links } from '../data/dummy'
 import { useStateContext } from '../contexts/ContextProvider'
+
 const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2'
 
 const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hoover:text-black hoover:bg-light-gray m-2'
@@ -26,7 +27,7 @@ function Sidebar () {
           <div className='flex justify-between items-center'>
             <Link
               to='/'
-              onClick={handleCloseSidebar}
+              onClick={() => setActiveMenu(false)}
               className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900'
             >
               <FaShop />
@@ -46,12 +47,12 @@ function Sidebar () {
             </TooltipComponent>
           </div>
           <div className='mt-10'>
-            {links.map((item) => (
-              <div key={item.tittle}>
+            {links.map((item) =>
+              <div key={item.title}>
                 <p className='text-gray-400 m-3 mt-4 uppercase'>
-                  {item.tittle}
+                  {item.title}
                 </p>
-                {item.links.map((Link) => (
+                {item.links.map((Link) =>
                   <NavLink
                     to={`/${Link.name}`}
                     key={Link.name}
@@ -62,9 +63,9 @@ function Sidebar () {
                     {Link.icon}
                     <span>{Link.name}</span>
                   </NavLink>
-                ))}
+                )}
               </div>
-            ))}
+            )}
           </div>
         </>
       )}

@@ -1,8 +1,8 @@
-/* eslint-disable no-unused-vars */
 import React, { createContext, useContext, useState } from 'react'
 
 const StateContext = createContext()
 
+// eslint-disable-next-line no-unused-vars
 const initialState = {
   chat: false,
   cart: false,
@@ -14,6 +14,7 @@ export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true)
   const [isClicked, setIsClicked] = useState(initialState)
   const [screenSize, setScreenSize] = useState(undefined)
+
   const handleClick = (clicked) => {
     setIsClicked({ ...initialState, [clicked]: true })
   }
