@@ -1,38 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { FiShoppingCart } from 'react-icons/fi'
 import { BsChatLeft } from 'react-icons/bs'
 import { RiNotification3Line } from 'react-icons/ri'
 import { MdKeyboardArrowDown } from 'react-icons/md'
-import { Cart, Chat, Notification, UserProfile } from '.'
+// eslint-disable-next-line no-unused-vars
+import { Cart, Chat, Notification, UserProfile, userProfile } from '.'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 
 import avatar from '../data/avatar.jpg'
 import { useStateContext } from '../contexts/ContextProvider'
 
-const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
-  <TooltipComponent
-    content={title}
-    position='BottomCenter'
-  >
-
-    <button
-      type='button'
-      onClick={customFunc}
-      style={{ color }}
-      className='relative text-xl rounded-full p-3 hover:bg-light-gray'
-    >
-      <span
-        style={{ background: dotColor }}
-        className='absolute inline-flex rounded-full h-2 -2 right-2 top-2'
+const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
+  return (
+    <TooltipComponent content={title} position='BottomCenter'>
+      <button
+        type='button'
+        onClick={customFunc}
+        style={{ color }}
+        className='relative text-xl rounded-full p-3 hover:bg-light-gray'
       >
-
-        {icon}
-      </span>
-    </button>
-
-  </TooltipComponent>
-)
+        <span
+          style={{ background: dotColor }}
+          className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
+        >
+          {icon}
+        </span>
+      </button>
+    </TooltipComponent>
+  )
+}
 
 function Navbar () {
   const {
@@ -42,62 +39,76 @@ function Navbar () {
     activeMenu,
     setActiveMenu,
     handleClick,
+    // eslint-disable-next-line no-unused-vars
     isClicked,
     // eslint-disable-next-line no-unused-vars
-    setIsClicked,
+    screenSize,
     // eslint-disable-next-line no-unused-vars
     setScreenSize
   } = useStateContext()
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    handleResize()
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (screenSize <= 700) {
+      setActiveMenu(false)
+    } else {
+      setActiveMenu(true)
+    }
+  }, [screenSize])
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
       <NavButton
         title='Menu'
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
         color='gray'
-        icon={<AiOutlineMenu />}
+        icon={
+          <div style={{ fontSize: '18px' }}>
+            <AiOutlineMenu />
+          </div>
+        }
       />
       <div className='flex'>
         <NavButton
           title='Cart'
-          customFunc={() => handleClick('cart')}
+          customFunc={() => handleClick('chat')}
           color='gray'
           icon={<FiShoppingCart />}
         />
         <NavButton
           title='Chat'
-          dotColor='#03C9D6'
+          dotColor='#03C1D7'
           customFunc={() => handleClick('chat')}
           color='gray'
           icon={<BsChatLeft />}
         />
         <NavButton
           title='Notification'
-          dotColor='#03C9D6'
+          dotColor='#03C1D7'
           customFunc={() => handleClick('notification')}
           color='gray'
           icon={<RiNotification3Line />}
         />
         <TooltipComponent content='Profile' position='BottomCenter'>
           <div
-            className='
-            flex
-            items-center
-            gap-2
-            cursor-pointer
-            p-1
-            hover:bg-light-gray
-            rounded-lg
-          '
+            className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
             onClick={() => handleClick('userProfile')}
           >
             <img
               className='rounded-full w-8 h-8'
               src={avatar}
-              alt='imagen de perfil de usuario'
+              alt='imagen perfil de usuario'
             />
             <p>
-              <span className='text-gray-400 text-14'>Hola,</span>{' '}
-              <span className='text-gray-400 font-bold ml-1 text-14 '>ChatBoot</span>
+              <span className='text-gray-400 text-14'>Hola</span>{' '}
+              <span className='text-gray-400 font-bold ml-4 text-14'>
+                ChatBoot
+              </span>
             </p>
             <MdKeyboardArrowDown className='text-gray-400 text-14' />
           </div>
@@ -110,4 +121,5 @@ function Navbar () {
     </div>
   )
 }
+
 export default Navbar

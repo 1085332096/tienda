@@ -1,7 +1,9 @@
 import React from 'react'
 
 function Line () {
-  return <div>Line</div>
+  return (
+    <div>Line</div>
+  )
 }
 
 export default Line
