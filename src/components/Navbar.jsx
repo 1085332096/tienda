@@ -33,7 +33,6 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
 
 function Navbar () {
   const {
-    // eslint-disable-next-line no-unused-vars
     currentColor,
     // eslint-disable-next-line no-unused-vars
     activeMenu,
@@ -66,7 +65,7 @@ function Navbar () {
       <NavButton
         title='Menu'
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
-        color='gray'
+        color={currentColor}
         icon={
           <div style={{ fontSize: '18px' }}>
             <AiOutlineMenu />
@@ -76,22 +75,22 @@ function Navbar () {
       <div className='flex'>
         <NavButton
           title='Cart'
-          customFunc={() => handleClick('chat')}
-          color='gray'
+          customFunc={() => handleClick('cart')}
+          color={currentColor}
           icon={<FiShoppingCart />}
         />
         <NavButton
           title='Chat'
           dotColor='#03C1D7'
           customFunc={() => handleClick('chat')}
-          color='gray'
+          color={currentColor}
           icon={<BsChatLeft />}
         />
         <NavButton
           title='Notification'
           dotColor='#03C1D7'
           customFunc={() => handleClick('notification')}
-          color='gray'
+          color={currentColor}
           icon={<RiNotification3Line />}
         />
         <TooltipComponent content='Profile' position='BottomCenter'>

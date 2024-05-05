@@ -1,19 +1,18 @@
-import React from 'react'
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
+import React, { useContext } from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs'
 import { VscPrimitiveSquare } from 'react-icons/vsc'
-// eslint-disable-next-line no-unused-vars
 import { Stacked, Pie, Button, SparkLine } from '../components'
-// eslint-disable-next-line no-unused-vars
-import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy'
-// eslint-disable-next-line no-unused-vars
+import { earningData, SparklineAreaData, ecomPieChartDat } from '../data/dummy'
 import { useStateContext } from '../contexts/ContextProvider'
 
 function Ecommerce () {
+  const { currentColor } = useStateContext()
   return (
-    <div className='mt-12'>
+    <div className='mt-24'>
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
-        <div className='bg-white data:text-gray-200 dark:bg-secondary-dark-bg h-44
+        <div
+          className='bg-white data:text-gray-200 dark:bg-secondary-dark-bg h-44
             rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover
             bg-center'
         >
@@ -23,11 +22,18 @@ function Ecommerce () {
               <p className='text-2xl'>$58.989.786</p>
               <earningData />
             </div>
+            <button
+              type='button'
+              style={{ backgroundColor: currentColor }}
+              className='text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full p-4 '
+            >
+              <BsCurrencyDollar />
+            </button>
           </div>
           <div>
             <Button
               color='white'
-              bgColor='gray'
+              bgColor={currentColor}
               text='Download'
               borderRadius='10px'
               size='md'
@@ -49,15 +55,11 @@ function Ecommerce () {
                 {item.icon}
               </button>
               <p className='mt-3'>
-                <span className='text-lg font-semibold'>
-                  {item.amount}
-                </span>
+                <span className='text-lg font-semibold'>{item.amount}</span>
                 <span className={`text-sm text-${item.color} ml-2`}>
                   {item.percentage}
                 </span>
-                <span className='text-sm text-gray-400 mt-1'>
-                  {item.title}
-                </span>
+                <span className='text-sm text-gray-400 mt-1'>{item.title}</span>
               </p>
             </div>
           ))}
@@ -65,13 +67,12 @@ function Ecommerce () {
       </div>
       {/* nueva seccion  */}
       <div className='flex gap-10 flex-grap justify-center'>
-        <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4
+        <div
+          className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4
         rounded-2xl md:w-788'
         >
           <div className='flex justify-between'>
-            <p className='font-semibold text-xl'>
-              Ingresos
-            </p>
+            <p className='font-semibold text-xl'>Ingresos</p>
             <div className='flex items-center gap-4'>
               <p className='flex items-center gap-2 text-gray-600 hover:drop-shadow-xl'>
                 <span>
@@ -91,10 +92,9 @@ function Ecommerce () {
             <div className='border-r-1 border-color m-4 pr-10'>
               <div>
                 <p>
-                  <span className='text-3xl font-semibold'>
-                    $76.897.543
-                  </span>
-                  <span className='p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full
+                  <span className='text-3xl font-semibold'>$76.897.543</span>
+                  <span
+                    className='p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full
                   text-white bg-green-600 ml-3 text-xs'
                   >
                     30%
@@ -104,9 +104,7 @@ function Ecommerce () {
               </div>
               <div className='mt-8'>
                 <p>
-                  <span className='text-3xl font-semibold'>
-                    $18.998.456
-                  </span>
+                  <span className='text-3xl font-semibold'>$18.998.456</span>
                 </p>
                 <p className='text-gray-500 mt-1'>Gastos</p>
               </div>
@@ -118,23 +116,19 @@ function Ecommerce () {
                   height='80px'
                   widht='250px'
                   data={SparklineAreaData}
-                  color='red'
+                  color={currentColor}
                 />
               </div>
               <div>
                 <Button
                   color='white'
-                  bgColor='bg-green-600'
+                  bgColor={currentColor}
                   text='Download report'
                   borderRadius='10px'
-
                 />
               </div>
               <div>
-                <Stacked
-                  widht='320px'
-                  height='360px'
-                />
+                <Stacked widht='320px' height='360px' />
               </div>
             </div>
           </div>
