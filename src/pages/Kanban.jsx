@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import {
   KanbanComponent,
@@ -7,7 +8,7 @@ import {
 import { Header } from '../components'
 import { kanbanData, kanbanGrid } from '../data/dummy'
 
-function Kanban () {
+function kanban () {
   return (
     <div className='m-2 md:10 p-2 md:p-10 bg-white rounded-s-none-3xl'>
       <Header
@@ -30,4 +31,4 @@ function Kanban () {
   )
 }
 
-export default Kanban
+export default kanban
